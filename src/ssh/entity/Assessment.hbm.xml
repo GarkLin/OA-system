@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+	<class name="ssh.entity.Assessment" table="Assessment">
+    	<id name="assessment_id" column="assessment_id">
+    		 <generator class="identity" />
+    	</id>
+    	<property name="id" column="id"></property>
+    	<property name="assessment_name" column="assessment_name"></property>
+    	<property name="assessment_department" column="assessment_department"></property>
+    	<property name="assessment_way" column="assessment_way"></property>
+    	<property name="assessment_time" column="assessment_time"></property>
+    	<property name="assessment_phone" column="assessment_phone"></property>
+    	<property name="assessment_date" column="assessment_date"></property>
+    	<property name="assessment_adress" column="assessment_adress"></property>
+    	<property name="assessment_table" column="assessment_table"></property>
+    	<property name="assessment_car" column="assessment_car"></property>
+    	<property name="asta" column="asta"></property>
+    </class>
+</hibernate-mapping>

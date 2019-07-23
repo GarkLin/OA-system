@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- 上面的头，注意版本，从样例里复制过来 showcase.war\WEB-INF\src\java\struts.xml -->
+
+<struts>
+    <!-- 告知Struts2运行时使用Spring来创建对象 -->
+    <!-- <constant name="struts.objectFactory" value="spring" /> -->
+    <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"></constant>
+    
+    <!-- 第1步：先定义一个包 -->
+    <package name="mypck001" extends="struts-default" namespace="/">
+        <!-- 第2步：定义一个action，配置跳转信息 name 类似于Servlet @WebServlet("/IndexServlet") 
+            http://xxxx/xxx/Index.action http://xxxx/xxx/Index class 对应于自己写的Action类 当不写method属性时，默认调用的是execute
+            class="ssh.action.IndexAction" ** new ssh.action.IndexAction()
+            设计思想：关心了具体的实现类必须改为不要关注那个实现类 加入spring后，struts的action节点的class属性意义发生变化，直接引用spring帮忙创建的实例 
+        -->
+        <action name="Index" class="myIndexAction">
+            <!-- 跳转是forward/WEB-INF/是防止jsp不经过action就可以访问-->
+            <!-- result接收返回的字符串，然后做对应的事情 -->
+            <result name="success">/WEB-INF/jsp/index.jsp</result>
+        </action>
+        <action name="login" class="ssh.action.UserAction" method="loginHome">
+        	<result name="success">/WEB-INF/views/userHome.jsp</result>
+        	<result name="login">/WEB-INF/login.jsp</result>
+        </action>
+        
+        <action name="logout" class="ssh.action.UserAction" method="logout">
+        	<result name="success">login.jsp</result>
+        </action>
+        
+        <action name="userHome" class="ssh.action.UserAction" method="userHome">
+        	<result name="success">/WEB-INF/views/userHome.jsp</result>
+        </action>
+        
+        <action name="userList" class="ssh.action.UserAction" method="userList">
+        	<result name="success">/WEB-INF/views/userList.jsp</result>
+        </action>
+        
+        <action name="userById" class="ssh.action.UserAction" method="userById">
+        	<result name="success">/WEB-INF/views/userUpdate.jsp</result>
+        </action>
+        
+        <action name="userUpdate" class="ssh.action.UserAction" method="update">
+        	<result name="success">/WEB-INF/views/successUpdate.jsp</result>
+        </action>
+        
+        <action name="addUserPage" class="ssh.action.UserAction" method="addUserPage">
+        	<result name="success">/WEB-INF/views/addUser.jsp</result>
+        </action>
+        
+        <action name="addUser" class="ssh.action.UserAction" method="addUser">
+        	<result name="success">/WEB-INF/views/success.jsp</result>
+        </action>
+        
+        <action name="myPersonnel" class="ssh.action.UserAction" method="myPersonnel">
+        	<result name="success">/WEB-INF/views/myPersonnel.jsp</result>
+        </action>
+        
+        <action name="Transaction" class="ssh.action.TransactionAction" method="Transaction">
+        	<result name="success">/WEB-INF/views/Transaction.jsp</result>
+        </action>
+       
+        <action name="viewImage" class="ssh.action.TransactionAction" method="viewImage">
+        	
+        </action>
+        
+        <action name="delDeployment" class="ssh.action.TransactionAction" method="delDeployment">
+        	<result name="success">/WEB-INF/views/myList.jsp</result>
+        </action>
+        
+        <action name="myWait" class="ssh.action.TransactionAction" method="myWait">
+        	<result name="success">/WEB-INF/views/myWait.jsp</result>
+        </action>
+        
+        <action name="myFinsh" class="ssh.action.TransactionAction" method="myWait">
+        	<result name="success">/WEB-INF/views/myFinsh.jsp</result>
+        </action>
+        
+        <action name="myList" class="ssh.action.TransactionAction" method="myList">
+        	<result name="success">/WEB-INF/views/myList.jsp</result>
+        </action>
+        
+        <action name="viewTaskForm" class="ssh.action.TransactionAction" method="viewTaskForm">
+        	<result name="success">/WEB-INF/views/myTasks.jsp</result>
+        </action>
+        
+        <action name="viewTaskForm2" class="ssh.action.TransactionAction" method="viewTaskForm2">
+        	<result name="success">/WEB-INF/views/myTasks2.jsp</result>
+        </action>
+        
+        <action name="newdeploy" class="ssh.action.TransactionAction" method="newdeploy">
+        	<result name="success">/WEB-INF/views/myList.jsp</result>
+        </action>
+        
+        <action name="startProcess" class="ssh.action.TransactionAction" method="startProcess">
+        	<result name="success" type="redirectAction">
+        		<param name="actionName">listTask.action</param>
+        	</result>
+        </action>
+        
+        <action name="startProcessAssessment" class="ssh.action.TransactionAction" method="startProcessAssessment">
+        	<result name="success" type="redirectAction">
+        		<param name="actionName">listTask2.action</param>
+        	</result>
+        </action>
+        
+        <action name="listTask" class="ssh.action.TransactionAction" method="listTask">
+        	<result name="success">/WEB-INF/views/myTask.jsp</result>
+        </action>
+        
+        <action name="listTask2" class="ssh.action.TransactionAction" method="listTask2">
+        	<result name="success">/WEB-INF/views/myTask2.jsp</result>
+        </action>
+        
+        <action name="addReview" class="ssh.action.TransactionAction" method="finishtask">
+        	<result name="success" type="redirectAction">
+        		<param name="actionName">myWait.action</param>
+        	</result>
+        </action>
+        
+        <action name="Recritment" class="ssh.action.RecritmentAction" method="Recritment">
+        	<result name="success">/WEB-INF/views/Recruitment.jsp</result>
+        </action>
+        
+        <action name="Recritment1" class="ssh.action.RecritmentAction" method="Recritment1">
+        	<result name="success">/WEB-INF/views/Recruitment.jsp</result>
+        </action>
+        
+        <action name="Recritment2" class="ssh.action.RecritmentAction" method="Recritment2">
+        	<result name="success">/WEB-INF/views/Recruitment.jsp</result>
+        </action>
+        
+        <action name="Recritment3" class="ssh.action.RecritmentAction" method="Recritment3">
+        	<result name="success">/WEB-INF/views/Recruitment.jsp</result>
+        </action>
+        
+        <action name="Recritment4" class="ssh.action.RecritmentAction" method="Recritment4">
+        	<result name="success">/WEB-INF/views/Recruitment.jsp</result>
+        </action>
+        
+        <action name="Test_01" class="ssh.action.RecritmentAction" method="Test_01">
+        	<result name="success">/WEB-INF/views/Test_01.jsp</result>
+        </action>
+        
+        <action name="addRecritment" class="ssh.action.RecritmentAction" method="addRecritment">
+        	<result name="success">/WEB-INF/views/asuccess.jsp</result>
+        </action>
+        
+        <action name="Assessment" class="ssh.action.RecritmentAction" method="Assessment">
+        	<result name="success">/WEB-INF/views/Assessment.jsp</result>
+        </action>
+        
+        <action name="Welfare" class="ssh.action.WelfareAction" method="Welfare">
+        	<result name="success">/WEB-INF/views/Welfare.jsp</result>
+        </action>
+        
+        <action name="Welfare2" class="ssh.action.WelfareAction" method="Welfare2">
+        	<result name="success">/WEB-INF/views/Welfare.jsp</result>
+        </action>
+        
+        <action name="Welfare3" class="ssh.action.WelfareAction" method="Welfare3">
+        	<result name="success">/WEB-INF/views/Welfare.jsp</result>
+        </action>
+        
+        <action name="Welfare4" class="ssh.action.WelfareAction" method="Welfare4">
+        	<result name="success">/WEB-INF/views/Welfare.jsp</result>
+        </action>
+        
+        <action name="table_welfare" class="ssh.action.WelfareAction" method="Table_welfare">
+        	<result name="success">/WEB-INF/views/table_welfare.jsp</result>
+        </action>
+        
+        <action name="Assessment" class="ssh.action.AssessmentAction" method="Assessment">
+        	<result name="success">/WEB-INF/views/Assessment.jsp</result>
+        </action>
+        
+        <action name="Assessment2" class="ssh.action.AssessmentAction" method="Assessment2">
+        	<result name="success">/WEB-INF/views/Assessment.jsp</result>
+        </action>
+        
+        <action name="Assessment3" class="ssh.action.AssessmentAction" method="Assessment3">
+        	<result name="success">/WEB-INF/views/Assessment.jsp</result>
+        </action>
+        
+        <action name="Assessment4" class="ssh.action.AssessmentAction" method="Assessment4">
+        	<result name="success">/WEB-INF/views/Assessment.jsp</result>
+        </action>
+        
+        <action name="Assessment5" class="ssh.action.AssessmentAction" method="Assessment5">
+        	<result name="success">/WEB-INF/views/Assessment.jsp</result>
+        </action>
+        
+        <action name="Assessment6" class="ssh.action.AssessmentAction" method="Assessment6">
+        	<result name="success">/WEB-INF/views/Assessment.jsp</result>
+        </action>
+        
+        <action name="table_assessment" class="ssh.action.AssessmentAction" method="Table_assessment">
+        	<result name="success">/WEB-INF/views/table_assessment.jsp</result>
+        </action>
+        
+        <action name="addAssessment" class="ssh.action.AssessmentAction" method="addAssessment">
+        	<result name="success">/WEB-INF/views/asuccess.jsp</result>
+        </action>
+        
+        <action name="waterManage" class="ssh.action.WaterAction" method="waterManage">
+        	<result name="success">/WEB-INF/views/waterManage.jsp</result>
+        </action>
+        
+        <action name="Finance" class="ssh.action.UserAction" method="finance">
+        	<result name="success">/WEB-INF/views/Finance.jsp</result>
+        </action>
+        
+        <action name="reports" class="ssh.action.UserAction" method="Reports">
+        	<result name="success">/WEB-INF/views/reports.jsp</result>
+        </action>
+        
+        <action name="waterManage_p2" class="ssh.action.WaterAction" method="waterManage_p2">
+        	<result name="success">/WEB-INF/views/waterManage_p2.jsp</result>
+        </action>
+        
+        <action name="waterManage_p3" class="ssh.action.WaterAction" method="waterManage_p3">
+        	<result name="success">/WEB-INF/views/waterManage_p3.jsp</result>
+        </action>
+        
+        <action name="waterManage_p4" class="ssh.action.WaterAction" method="waterManage_p4">
+        	<result name="success">/WEB-INF/views/waterManage_p4.jsp</result>
+        </action>
+        
+        <action name="waterManage_table" class="ssh.action.WaterAction" method="waterManage_table">
+        	<result name="success">/WEB-INF/views/waterManage_table.jsp</result>
+        </action>
+        
+        <action name="waterManage_P2table" class="ssh.action.WaterAction" method="waterManage_P2table">
+        	<result name="success">/WEB-INF/views/waterManage_P2table.jsp</result>
+        </action>
+        
+        <action name="Finance_P2" class="ssh.action.FinanceAction" method="Finance_P2">
+        	<result name="success">/WEB-INF/views/Finance_P2.jsp</result>
+        </action>
+        
+         <action name="Finance_P21" class="ssh.action.FinanceAction" method="Finance_P21">
+        	<result name="success">/WEB-INF/views/Finance_P2.jsp</result>
+        </action>
+        
+        <action name="Finance_P3" class="ssh.action.FinanceAction" method="Finance_P3">
+        	<result name="success">/WEB-INF/views/Finance_P3.jsp</result>
+        </action>
+        
+        <action name="Finance_P4" class="ssh.action.FinanceAction" method="Finance_P4">
+        	<result name="success">/WEB-INF/views/Finance_P4.jsp</result>
+        </action>
+        
+        <action name="Finance_table" class="ssh.action.FinanceAction" method="Finance_table">
+        	<result name="success">/WEB-INF/views/Finance_table.jsp</result>
+        </action>
+        
+          <action name="Finance_table2" class="ssh.action.FinanceAction" method="Finance_table2">
+        	<result name="success">/WEB-INF/views/Finance_table2.jsp</result>
+        </action>
+        
+          <action name="Finance_table3" class="ssh.action.FinanceAction" method="Finance_table3">
+        	<result name="success">/WEB-INF/views/Finance_table3.jsp</result>
+        </action>
+        
+          <action name="Finance_table4" class="ssh.action.FinanceAction" method="Finance_table4">
+        	<result name="success">/WEB-INF/views/Finance_table4.jsp</result>
+        </action>
+        
+        <action name="Finance1" class="ssh.action.FinanceAction" method="Finance1">
+        	<result name="success">/WEB-INF/views/Finance.jsp</result>
+        </action>
+        
+        <action name="Finance2" class="ssh.action.FinanceAction" method="Finance2">
+        	<result name="success">/WEB-INF/views/Finance2.jsp</result>
+        </action>
+        
+        <action name="Finance3" class="ssh.action.FinanceAction" method="Finance3">
+        	<result name="success">/WEB-INF/views/Finance3.jsp</result>
+        </action>
+        
+        <action name="Finance4" class="ssh.action.FinanceAction" method="Finance4">
+        	<result name="success">/WEB-INF/views/Finance4.jsp</result>
+        </action>
+        
+        <action name="assessmentChange" class="ssh.action.AssessmentAction" method="assessmentChange">
+        	<result name="success">/WEB-INF/views/assessmentUpdate.jsp</result>
+        </action>
+        
+        <action name="assessmentUpdate" class="ssh.action.AssessmentAction" method="update">
+        	<result name="success">/WEB-INF/views/myWait.jsp</result>
+        </action>
+
+        <action name="assessmentdelete" class="ssh.action.AssessmentAction" method="assessmentdelete">
+        	<result name="success">/WEB-INF/views/myWait.jsp</result>
+        </action>
+       	
+        <action name="startProcessAssessment" class="ssh.action.TransactionAction" method="startProcessAssessment">
+        	<result name="success">/WEB-INF/views/myTask.jsp</result>
+        </action>
+        
+        <action name="recritmentChange" class="ssh.action.RecritmentAction" method="recritmentChange">
+        	<result name="success">/WEB-INF/views/recritmentUpdate.jsp</result>
+        </action>
+        
+        <action name="recritmentUpdate" class="ssh.action.RecritmentAction" method="update">
+        	<result name="success">/WEB-INF/views/myWait.jsp</result>
+        </action>
+        
+        <action name="recritmentdelete" class="ssh.action.RecritmentAction" method="recritmentdelete">
+        	<result name="success">/WEB-INF/views/myWait.jsp</result>
+        </action>
+        
+        <action name="addWelfare" class="ssh.action.WelfareAction" method="addWelfare">
+        	<result name="success">/WEB-INF/views/success.jsp</result>
+        </action>
+        
+        <action name="addWater" class="ssh.action.WaterAction" method="addWater">
+        	<result name="success">/WEB-INF/views/success.jsp</result>
+        </action>
+        
+        <action name="addElectricity" class="ssh.action.WaterAction" method="addElectricity">
+        	<result name="success">/WEB-INF/views/success.jsp</result>
+        </action>
+        
+        <action name="findWater" class="ssh.action.WaterAction" method="findWater">
+        	<result name="success">/WEB-INF/views/waterManage_p3.jsp</result>
+        </action>
+        
+        <action name="addFinance" class="ssh.action.FinanceAction" method="addFinance">
+        	<result name="success">/WEB-INF/views/addFinance.jsp</result>
+        </action>
+        
+        <action name="addf" class="ssh.action.FinanceAction" method="addf">
+        	<result name="success">/WEB-INF/views/success.jsp</result>
+        </action>
+        
+        <action name="finance_page3" class="ssh.action.FinanceAction" method="finance_page3">
+        	<result name="success">/WEB-INF/views/finance_page3.jsp</result>
+        </action>
+        
+        <action name="findFinance" class="ssh.action.FinanceAction" method="findFinance">
+        	<result name="success">/WEB-INF/views/finance_page3.jsp</result>
+        </action>
+    </package>
+</struts>

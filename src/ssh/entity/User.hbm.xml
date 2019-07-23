@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+	<class name="ssh.entity.User" table="User">
+    	<id name="uid" column="uid">
+    		 <generator class="identity" />
+    	</id>
+    	<property name="name" column="name"></property>
+    	<property name="gender" column="gender"></property>
+    	<property name="email" column="email"></property>
+    	<property name="position" column="position"></property>
+    	<property name="description" column="description"></property>
+    	<property name="department" column="department"></property>
+    	<property name="yes_or_no" column="yes_or_no"></property>
+    	<property name="username" column="username"></property>
+    	<property name="password" column="password"></property>
+    </class>
+</hibernate-mapping>

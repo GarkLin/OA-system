@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping> 
+	<class name="ssh.entity.Water" table="Water">
+    	<id name="water_id" column="water_id">
+    		 <generator class="identity" />
+    	</id>
+    	<property name="pay_date" column="pay_date"></property>
+    	<property name="pay_money" column="pay_money"></property>
+    	<property name="type" column="type"></property>
+    	<property name="type_id" column="type_id"></property>
+    	<property name="department" column="department"></property>
+    	<property name="department_is" column="department_is"></property>
+    	<property name="source" column="source"></property>
+    	<property name="water_user" column="water_user"></property>
+    	<property name="phone" column="phone"></property>
+    	<property name="beizhu" column="beizhu"></property>
+    </class>
+</hibernate-mapping>

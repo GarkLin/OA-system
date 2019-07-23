@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		                    http://www.springframework.org/schema/context 
+		                    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		                    http://www.springframework.org/schema/tx 
+		                    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		                    http://www.springframework.org/schema/aop 
+		                    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	 
+	<bean id="assessmentService" class="ssh.service.AssessmentServiceImpl">
+		<property name="assessmentDao" ref="assessmentDao"></property>
+	</bean>
+	<bean id="financeService" class="ssh.service.FinanceServiceImpl">
+		<property name="financeDao" ref="financeDao"></property>
+	</bean>
+	<bean id="managesService" class="ssh.service.ManagesServiceImpl">
+		<property name="managesDao" ref="managesDao"></property>
+	</bean>
+	<bean id="recritmentService" class="ssh.service.RecritmentServiceImpl">
+		<property name="recritmentDao" ref="recritmentDao"></property>
+	</bean>
+	<bean id="userService" class="ssh.service.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="waterService" class="ssh.service.WaterServiceImpl">
+		<property name="waterDao" ref="waterDao"></property>
+	</bean>
+	<bean id="welfareService" class="ssh.service.WelfareServiceImpl">
+		<property name="welfareDao" ref="welfareDao"></property>
+	</bean>
+	<bean id="transactionService" class="ssh.service.TransactionServiceImpl">
+		<property name="repositoryService" ref="repositoryService"></property>
+		<property name="runtimeService" ref="runtimeService"></property>
+		<property name="taskService" ref="taskService"></property>
+		<property name="formService" ref="formService"></property>
+		<property name="historyService" ref="historyService"></property>
+		<property name="transactionDao" ref="transactionDao"></property>
+		<property name="recritmentDao" ref="recritmentDao"></property>
+		<property name="assessmentDao" ref="assessmentDao"></property>
+	</bean>
+	<bean id="reviewService" class="ssh.service.ReviewServiceImpl">
+		<property name="reviewDao" ref="reviewDao"></property>
+	</bean>
+</beans>

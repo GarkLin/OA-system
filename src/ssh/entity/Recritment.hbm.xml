@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ssh.entity.Recritment" table="Recritment">
+		<id name="recritment_id" column="recritment_id">
+			<generator class="identity" />
+		</id>
+		<property name="id" column="id"></property>
+		<property name="recritment_name" column="recritment_name"></property>
+		<property name="recritment_manage" column="recritment_manage"></property>
+		<property name="recritment_content" column="recritment_content"></property>
+		<property name="recritment_address" column="recritment_address"></property>
+		<property name="recritment_date" column="recritment_date"></property>
+		<property name="recritment_position" column="recritment_position"></property>
+		<property name="recritment_num" column="recritment_num"></property>
+		<property name="recritment_phone" column="recritment_phone"></property>
+		<property name="recritment_email" column="recritment_email"></property>
+		<property name="recritment_time" column="recritment_time"></property>
+		<property name="recritment_shuoming" column="recritment_shuoming"></property>
+		<property name="recritment_neirong" column="recritment_neirong"></property>
+		<property name="recritment_English" column="recritment_English"></property>
+		<property name="recritment_age" column="recritment_age"></property>
+		<property name="recritment_gender" column="recritment_gender"></property>
+		<property name="recritment_xueli" column="recritment_xueli"></property>
+		<property name="recritment_zhuanye" column="recritment_zhuanye"></property>
+		<property name="recritment_jingyan" column="recritment_jingyan"></property>
+		<property name="recritment_beijing" column="recritment_beijing"></property>
+		<property name="recritment_yaoqiu" column="recritment_yaoqiu"></property>
+		<property name="sta" column="sta"></property>
+	</class>
+</hibernate-mapping>

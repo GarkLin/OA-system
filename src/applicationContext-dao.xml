@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		                    http://www.springframework.org/schema/context 
+		                    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		                    http://www.springframework.org/schema/tx 
+		                    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		                    http://www.springframework.org/schema/aop 
+		                    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"> 
+	<bean id="assessmentDao" class="ssh.dao.AssessmentDaoImpl" parent="baseDao">
+	</bean>
+	<bean id="financeDao" class="ssh.dao.FinanceDaoImpl" parent="baseDao">
+	</bean>
+	<bean id="managesDao" class="ssh.dao.ManagesDaoImpl" parent="baseDao">
+	</bean>
+	<bean id="recritmentDao" class="ssh.dao.RecritmentDaoImpl" parent="baseDao">
+	</bean>
+	<bean id="userDao" class="ssh.dao.UserDaoImpl" parent="baseDao">
+	</bean>
+	<bean id="waterDao" class="ssh.dao.WaterDaoImpl" parent="baseDao">
+	</bean>
+	<bean id="welfareDao" class="ssh.dao.WelfareDaoImpl" parent="baseDao">
+	</bean>
+	<bean id="transactionDao" class="ssh.dao.TransactionDaoImpl" parent="baseDao">
+	</bean>
+	<bean id="reviewDao" class="ssh.dao.ReviewDaoImpl" parent="baseDao">
+	</bean>
+</beans>
